@@ -1524,6 +1524,11 @@ function _Chat() {
                         </>
                       )}
                     </div>
+                    {!isUser && (
+                      <div className={styles["chat-model-name"]}>
+                        {message.model}
+                      </div>
+                    )}
 
                     {showActions && (
                       <div className={styles["chat-message-actions"]}>
@@ -1582,7 +1587,7 @@ function _Chat() {
                         message.content.length === 0 &&
                         !isUser
                       }
-                      onContextMenu={(e) => onRightClick(e, message)}
+                      //   onContextMenu={(e) => onRightClick(e, message)} // hard to use
                       onDoubleClickCapture={() => {
                         if (!isMobileScreen) return;
                         setUserInput(getMessageTextContent(message));
